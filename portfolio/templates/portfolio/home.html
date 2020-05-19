@@ -1,0 +1,26 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+
+    <h1>Sungwon's Portfolio</h1>
+    {% load static %}
+    <div class="text-center">
+  <img src="{% static 'portfolio\profile.jpeg' %}" class="rounded" alt="Image" height="400" width="300">
+  </div>
+  <br>
+<h4>Hi! My name is Sungwon Ahn and I am an assistant professor in Roosevelt University.  I am teaching actuarial science and mathematics</h4>
+<br>
+    {% for project in projects %}
+
+    <h2>{{project.title}}</h2>
+
+    <p>{{project.description}}</p>
+    <img src="{{project.image.url}}" height=40 width=40>
+    {% if project.url %}
+    <a href="{{project.url}}">Link</a>
+    {% endif %}
+
+
+    {% endfor %}
+
+{% endblock %}
